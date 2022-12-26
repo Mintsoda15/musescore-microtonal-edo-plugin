@@ -1,3 +1,5 @@
+⚠️Caution: This is not tested in 4.0. (Works fine in 3.X)
+
 # Microtonal plugin for Musescore 3.4+: Retune + Transpose in almost any EDO.
 
 
