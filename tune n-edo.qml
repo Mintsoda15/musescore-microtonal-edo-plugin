@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.3
 import MuseScore 3.0
 
 MuseScore {
-      version: "2.3.3"
+      version: "3.6.0"
       description: "Retune selection to any EDO temperament, or whole score if nothing selected."
       menuPath: "Plugins.n-EDO.Tune"
 
@@ -23,11 +23,13 @@ MuseScore {
       }
 
       property variant standardAccFifths: {
+        'bbb': -21,
         'bb': -14,
         'b': -7,
         '': 0,
         '#': 7,
-        'x': 14
+        'x': 14,
+        '#x': 21
       }
 
       // Enumeration of custom names to map MuseScore symbols, text, and accidentals
@@ -47,6 +49,7 @@ MuseScore {
           'DOUBLE_SHARP_ONE_ARROW_UP',
           'SHARP2',
           'SHARP2_ARROW_DOWN',
+          'SHARP3',
           'DOUBLE_SHARP_ONE_ARROW_DOWN',
           'DOUBLE_SHARP_TWO_ARROWS_DOWN',
           'DOUBLE_SHARP_THREE_ARROWS_DOWN',
@@ -82,9 +85,32 @@ MuseScore {
           'DOUBLE_FLAT_ONE_ARROW_UP',
           'FLAT2',
           'FLAT2_ARROW_DOWN',
+          'FLAT3',
           'DOUBLE_FLAT_ONE_ARROW_DOWN',
           'DOUBLE_FLAT_TWO_ARROWS_DOWN',
-          'DOUBLE_FLAT_THREE_ARROWS_DOWN'
+          'DOUBLE_FLAT_THREE_ARROWS_DOWN',
+          'ONE_TWELFTH_SHARP',
+          'TWO_TWELFTH_SHARP',
+          'THREE_TWELFTH_SHARP',
+          'FOUR_TWELFTH_SHARP',
+          'FIVE_TWELFTH_SHARP',
+          'SIX_TWELFTH_SHARP',
+          'SEVEN_TWELFTH_SHARP',
+          'EIGHT_TWELFTH_SHARP',
+          'ELEVEN_TWELFTH_SHARP',
+          'ONE_TWELFTH_FLAT',
+          'TWO_TWELFTH_FLAT',
+          'THREE_TWELFTH_FLAT',
+          'FOUR_TWELFTH_FLAT',
+          'FIVE_TWELFTH_FLAT',
+          'SIX_TWELFTH_FLAT',
+          'SEVEN_TWELFTH_FLAT',
+          'EIGHT_TWELFTH_FLAT',
+          'ELEVEN_TWELFTH_FLAT',
+          'SORI',
+          'KORON',
+          'LOWER_ONE_UNDECIMAL_QUARTERTONE',
+          'RAISE_ONE_UNDECIMAL_QUARTERTONE'
           ];
         var enumeration = {};
         for (var i = 0; i < symbols.length; i++) {
@@ -145,9 +171,8 @@ MuseScore {
       */
       function getCentOffset(noteName, stepOffset, regAcc, edo, center, transFifths) {
         var stepSize = 1200.0 / edo;
-        var val = [2, 3].map (function (q) {return Math.round(edo * Math.log(q) / Math.LN2);});
-        var fifthStep = -val[0] + val[1];
-        var sharpValue = -11*val[0] + 7*val[1];
+        var fifthStep = Math.round(edo * Math.log(3/2) / Math.LN2);
+        var sharpValue = 7 * fifthStep - 4 * edo;
         var twelveFifthVsEdoFifthCents = 700 - (fifthStep * stepSize);
         var transpositionCorrection = -transFifths * twelveFifthVsEdoFifthCents;
 
@@ -217,20 +242,65 @@ MuseScore {
       }
 
       function convertAccidentalToStepsOrNull(acc, edo) {
-        var val = [2, 3].map (function (q) {return Math.round(edo * Math.log(q) / Math.LN2);});
-        var fifthStep = -val[0] + val[1];
-        var sharpValue = -11*val[0] + 7*val[1];
+        var fifthStep = Math.round(edo * Math.log(3/2) / Math.LN2);
+        var sharpValue = 7 * fifthStep - 4 * edo;
         switch(acc.trim()) {
+        case 'b11/6':
+          return -11*sharpValue/6;
+        case 'b5/3':
+        case 'b10/6':
+          return -10*sharpValue/6;
+        case 'b3/2':
+        case 'b9/6':
         case 'db':
         case 'bd':
           return -3*sharpValue/2;
+        case 'b8/6':
+        case 'b4/3':
+          return -8*sharpValue/6;
+        case 'b7/6':
+          return -7*sharpValue/6;
+        case 'b5/6':
+          return -5*sharpValue/6;
+        case 'b2/3':
+        case 'b4/6':
+          return -4*sharpValue/6;
+        case 'b1/2':
+        case 'b3/6':
         case 'd':
           return -sharpValue/2;
+        case 'b2/6':
+        case 'b1/3':
+          return -sharpValue/3;
+        case 'b1/6':
+          return -sharpValue/6;
+        case '#1/6':
+          return -sharpValue/6;
+        case '#1/3':
+        case '#2/6':
+          return -sharpValue/3;
         case '+':
           return sharpValue/2;
+        case '#2/3':
+        case '#4/6':
+          return 4*sharpValue/6;
+        case '#5/6':
+          return 5*sharpValue/6;
+        case '#7/6':
+          return 7*sharpValue/6;
+        case '#8/6':
+        case '#4/3':
+          return 8*sharpValue/6;
+        case '#9/6':
+        case '#3/2':
         case '#+':
         case '+#':
           return 3*sharpValue/2;
+        case '#10/6':
+        case '#5/3':
+          return 10*sharpValue/6;
+        case '#11/6':
+          return 11*sharpValue/6;
         case 'bbv3':
           return -2*sharpValue - 3;
         case 'bbv2':
@@ -240,6 +310,8 @@ MuseScore {
           return -2*sharpValue - 1;
         case 'bb':
           return -2*sharpValue;
+        case 'bbb':
+          return -3*sharpValue;
         case 'bb^':
         case 'bb^1':
           return -2*sharpValue + 1;
@@ -304,6 +376,8 @@ MuseScore {
           return 2*sharpValue - 1;
         case 'x':
           return 2*sharpValue;
+        case '#x':
+          return 3*sharpValue;
         case 'x^':
         case 'x^1':
           return 2*sharpValue + 1;
@@ -660,9 +734,8 @@ MuseScore {
       // will not be tuned.
       function tuneNote(note, segment, parms, scanOnly) {
         var tpc = note.tpc;
-        var val = [2, 3].map (function (q) {return Math.round(parms.currEdo * Math.log(q) / Math.LN2);});
-        var fifthStep = -val[0] + val[1];
-        var sharpValue = -11*val[0] + 7*val[1];
+        var fifthStep = Math.round(parms.currEdo * Math.log(3/2) / Math.LN2);
+        var sharpValue = 7*fifthStep - 4*parms.currEdo;
 
         // If tpc is non-natural, there's no need to go through additional steps,
         // since accidentals and key sig are already taken into consideration
@@ -672,6 +745,29 @@ MuseScore {
         // the key signature to truly determine what note it is.
 
         switch(tpc) {
+
+        case -8: //Fbbb
+          note.tuning = getCentOffset ('f', -3*sharpValue, -3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case -7: //Cbbb
+          note.tuning = getCentOffset ('c', -3*sharpValue, -3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case -6: //Gbbb
+          note.tuning = getCentOffset ('g', -3*sharpValue, -3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case -5: //Dbbb
+          note.tuning = getCentOffset ('d', -3*sharpValue, -3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case -4: //Abbb
+          note.tuning = getCentOffset ('a', -3*sharpValue, -3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case -3: //Ebbb
+          note.tuning = getCentOffset ('e', -3*sharpValue, -3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case -2: //Bbbb
+          note.tuning = getCentOffset ('b', -3*sharpValue, -3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+
         case -1: //Fbb
           note.tuning = getCentOffset ('f', -2*sharpValue, -2, parms.currEdo, parms.currCenter, parms.currTranspose);
           return;
@@ -759,6 +855,28 @@ MuseScore {
         case 33: //Bx
           note.tuning = getCentOffset ('b', 2*sharpValue, 2, parms.currEdo, parms.currCenter, parms.currTranspose);
           return;
+
+        case 34: //F#x
+          note.tuning = getCentOffset ('f', 3*sharpValue, 3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case 35: //C#x
+          note.tuning = getCentOffset ('c', 3*sharpValue, 3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case 36: //G#x
+          note.tuning = getCentOffset ('g', 3*sharpValue, 3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case 37: //D#x
+          note.tuning = getCentOffset ('d', 3*sharpValue, 3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case 38: //A#x
+          note.tuning = getCentOffset ('a', 3*sharpValue, 3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case 39: //E#x
+          note.tuning = getCentOffset ('e', 3*sharpValue, 3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
+        case 40: //B#x
+          note.tuning = getCentOffset ('b', 3*sharpValue, 3, parms.currEdo, parms.currCenter, parms.currTranspose);
+          return;
         }
 
         // in the event that tpc is considered natural by
@@ -799,17 +917,73 @@ MuseScore {
           case Accidental.NATURAL:
             accOffset = 0;
             break;
+          case Accidental.ELEVEN_TWELFTH_SHARP:
+            accOffset = 11*sharpValue/6;
+            break;
+          case Accidental.TEN_TWELFTH_SHARP:
+            accOffset = 10*sharpValue/6;
+            break;
           case Accidental.SHARP_SLASH4:
+          case Accidental.NINE_TWELFTH_SHARP:
             accOffset = 3*sharpValue/2;
             break;
+          case Accidental.EIGHT_TWELFTH_SHARP:
+            accOffset = 8*sharpValue/6;
+            break;
+          case Accidental.SEVEN_TWELFTH_SHARP:
+            accOffset = 7*sharpValue/6;
+            break;
+          case Accidental.FIVE_TWELFTH_SHARP:
+            accOffset = 5*sharpValue/6;
+            break;
+          case Accidental.FOUR_TWELFTH_SHARP:
+            accOffset = 4*sharpValue/6;
+            break;
           case Accidental.SHARP_SLASH:
+          case Accidental.THREE_TWELFTH_SHARP:
+          case Accidental.RAISE_ONE_UNDECIMAL_QUARTERTONE:
+          case Accidental.SORI:
             accOffset = sharpValue/2;
             break;
+          case Accidental.TWO_TWELFTH_SHARP:
+            accOffset = sharpValue/3;
+            break;
+          case Accidental.ONE_TWELFTH_SHARP:
+            accOffset = sharpValue/6;
+            break;
+          case Accidental.ONE_TWELFTH_FLAT:
+            accOffset = -sharpValue/6;
+            break;
+          case Accidental.TWO_TWELFTH_FLAT:
+            accOffset = -sharpValue/3;
+            break;
           case Accidental.MIRRORED_FLAT:
+          case Accidental.THREE_TWELFTH_FLAT:
+          case Accidental.LOWER_ONE_UNDECIMAL_QUARTERTONE:
+          case Accidental.KORON:
             accOffset = -sharpValue/2;
             break;
+          case Accidental.FOUR_TWELFTH_FLAT:
+            accOffset = -4*sharpValue/6;
+            break;
+          case Accidental.FIVE_TWELFTH_FLAT:
+            accOffset = -5*sharpValue/6;
+            break;
+          case Accidental.SEVEN_TWELFTH_FLAT:
+            accOffset = -7*sharpValue/6;
+            break;
+          case Accidental.EIGHT_TWELFTH_FLAT:
+            accOffset = -8*sharpValue/6;
+            break;
           case Accidental.MIRRORED_FLAT2:
+          case Accidental.NINE_TWELFTH_FLAT:
             accOffset = -3*sharpValue/2;
+            break;
+          case Accidental.TEN_TWELFTH_FLAT:
+            accOffset = -10*sharpValue/6;
+            break;
+          case Accidental.ELEVEN_TWELFTH_FLAT:
+            accOffset = -11*sharpValue/6;
             break;
           case Accidental.DOUBLE_SHARP_THREE_ARROWS_UP:
             accOffset = 2*sharpValue + 3;
