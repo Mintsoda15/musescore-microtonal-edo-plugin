@@ -205,7 +205,7 @@ to turn on courtesy accidentals for all notes (helpful for atonal pieces or scor
 | ![wyschnegradsky`s 3/4 flat](images/b9／12.png) | `b9/12` or `b3/4` |
 | ![wyschnegradsky`s 5/6 flat](images/b10／12.png) | `b10/12` or `b5/6` |
 | ![wyschnegradsky`s 11/12 flat](images/b11／12.png) | `b11/12` |
-| ![Triple sharp](images/#x.png)           | `#x` |
+| ![Triple sharp](images/sx.png)           | `#x` |
 | ![Triple flat](images/bbb.png)           | `bbb` |
 
 -----------------
