@@ -185,6 +185,26 @@ to turn on courtesy accidentals for all notes (helpful for atonal pieces or scor
 | ![Double sharp up](images/xu1.png)      | `x^` or `x^1` |
 | ![Double sharp up 2](images/xu2.png)    | `x^2` |
 | ![Double sharp up 3](images/xu3.png)    | `x^3` |
+| ![wyschnegradsky's 1/12 sharp](image/s1／12.png) | '#1/12' |
+| ![wyschnegradsky's 1/6 sharp](image/s2／12.png) | '#2/12' or '#1/6' |
+| ![wyschnegradsky's 1/4 sharp](image/s3／12.png) | '#3/12' or '#1/4' |
+| ![wyschnegradsky's 1/3 sharp](image/s4／12.png) | '#4/12' or '#1/3' |
+| ![wyschnegradsky's 5/12 sharp](image/s5／12.png) | '#5/12' |
+| ![wyschnegradsky's 7/12 sharp](image/s7／12.png) | '#7/12' |
+| ![wyschnegradsky's 2/3 sharp](image/s8／12.png) | '#8/12' or '#2/3' |
+| ![wyschnegradsky's 3/4 sharp](image/s9／12.png) | '#9/12' or '#3/4' |
+| ![wyschnegradsky's 5/6 sharp](image/s10／12.png) | '#10/12' or '#5/6' |
+| ![wyschnegradsky's 11/12 sharp](image/s11／12.png) | '#11/12' |
+| ![wyschnegradsky's 1/12 flat](image/b1／12.png) | 'b1/12' |
+| ![wyschnegradsky's 1/6 flat](image/b2／12.png) | 'b2/12' or 'b1/6' |
+| ![wyschnegradsky's 1/4 flat](image/b3／12.png) | 'b3/12' or 'b1/4' |
+| ![wyschnegradsky's 1/3 flat](image/b4／12.png) | 'b4/12' or 'b1/3' |
+| ![wyschnegradsky's 5/12 flat](image/b5／12.png) | 'b5/12' |
+| ![wyschnegradsky's 7/12 flat](image/b7／12.png) | 'b7/12' |
+| ![wyschnegradsky's 2/3 flat](image/b8／12.png) | 'b8/12' or 'b2/3' |
+| ![wyschnegradsky's 3/4 flat](image/b9／12.png) | 'b9/12' or 'b3/4' |
+| ![wyschnegradsky's 5/6 flat](image/b10／12.png) | 'b10/12' or 'b5/6' |
+| ![wyschnegradsky's 11/12 flat](image/b11／12.png) | 'b11/12' |
 
 -----------------
 
