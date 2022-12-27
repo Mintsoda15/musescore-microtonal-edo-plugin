@@ -243,7 +243,7 @@ reference frequency selector, or A4: 440 Hz by default.
 
 ### Tuning of regular pythagorean accidentals
 
-![bbb](images/bb.png) ![bb](images/bb.png) ![b](images/b.png) ![s](images/s.png) ![x](images/x.png) ![#x](images/sx.png)
+![bbb](images/bbb.png) ![bb](images/bb.png) ![b](images/b.png) ![s](images/s.png) ![x](images/x.png) ![sx](images/sx.png)
 
 The standard accidentals Triple Flat (`bbb`), Double Flat (`bb`), Flat (`b`), Sharp (`#`), Double Sharp (`x`), Triple Sharp (`#x`) are based on
 the circle of fifths.
@@ -274,9 +274,6 @@ Note: in EDOs such as 7, 14 and 21, the sharp and flats do not raise nor lower t
 they are known as **perfect** EDOs, i.e. **Sharp-0**.
 
 [Here is the full list of supported EDOs and their respective sharpness values.](#appendix-a-list-of-supported-edos-according-to-sharpness-classification)
-
-The plugin only supports up to 2 flats and sharps. Triple flats and sharps and not supported as
-MuseScore does not provide these accidentals.
 
 ### Tuning of up/down arrows
 
@@ -319,7 +316,7 @@ For example, in 31-edo, where the sharpness rating is sharp-2:
 
 ![b11/12](images/b11／12.png) ![b10/12](images/b10／12.png) ![b9/12](images/b9／12.png) ![b8/12](images/b8／12.png) ![b7/12](images/b7／12.png) ![b](images/b.png) ![b5/12](images/b5／12.png) ![b4/12](images/b4／12.png) ![b3/12](images/b3／12.png) ![b2/12](images/b2／12.png) ![b1/12](images/b1／12.png)
 
-![#1/12](images/s1／12.png) ![#2/12](images/s2／12.png) ![#3/12](images/s3／12.png) ![#4/12](images/s4／12.png) ![#5/12](images/s5／12.png) ![#](images/s.png) ![#7/12](images/s7／12.png) ![#8/12](images/s8／12.png) ![#9/12](images/s9／12.png) ![#10/12](images/s10／12.png) ![#11/12](images/s11／12.png)
+![s1/12](images/s1／12.png) ![s2/12](images/s2／12.png) ![s3/12](images/s3／12.png) ![s4/12](images/s4／12.png) ![s5/12](images/s5／12.png) ![s](images/s.png) ![s7/12](images/s7／12.png) ![s8/12](images/s8／12.png) ![s9/12](images/s9／12.png) ![s10/12](images/s10／12.png) ![s11/12](images/s11／12.png)
 
 wyschnegradsky 1/12 tone accidentals
 
