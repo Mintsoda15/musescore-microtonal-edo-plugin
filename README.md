@@ -243,9 +243,9 @@ reference frequency selector, or A4: 440 Hz by default.
 
 ### Tuning of regular pythagorean accidentals
 
-![bb](images/bb.png) ![b](images/b.png) ![s](images/s.png) ![x](images/x.png)
+![bbb](images/bb.png) ![bb](images/bb.png) ![b](images/b.png) ![s](images/s.png) ![x](images/x.png) ![#x](images/sx.png)
 
-The standard accidentals Double Flat (`bb`), Flat (`b`), Sharp (`#`), Double Sharp (`x`) are based on
+The standard accidentals Triple Flat (`bbb`), Double Flat (`bb`), Flat (`b`), Sharp (`#`), Double Sharp (`x`), Triple Sharp (`#x`) are based on
 the circle of fifths.
 
 To give an example in 12-edo, going 7 fifths up from C4 yields C4-G4-D5-A5-E6-B6-F#7-C#8.\
