@@ -301,7 +301,7 @@ Gould arrow quartertone symbols look very similar to the single up/down arrow He
 and may be used interchangeably, although the plugin defaults to Helmholtz-Ellis when transposing.
 To differentiate the two, Gould arrow symbols appear slightly larger than the Helmholtz-Ellis ones.
 
-### Tuning of quartertone (semisharp/semiflat) accidentals
+### Tuning of quartertone (semisharp/semiflat) accidentals represent an offset of n/12(n = 1 ~ 11) times of the standard sharpness of the accidental. 
 
 ![db](images/db.png) ![d](images/d.png) ![+](images/+.png) ![s+](images/s+.png)
 
@@ -314,6 +314,15 @@ For example, in 31-edo, where the sharpness rating is sharp-2:
 - ![d](images/d.png) lowers the pitch by 0.5 x 2 = -1 step
 - ![+](images/+.png) raises the pitch by 0.5 x 2 = +1 step
 - ![s+](images/s+.png) raises the pitch by 1.5 x 2 = +3 steps
+
+### Tuning of Wyschnegradsky's 1/12 tone accidentals
+
+![b11/12](images/b11／12.png) ![b10/12](images/b10／12.png) ![b9/12](images/b9／12.png) ![b8/12](images/b8／12.png) ![b7/12](images/b7／12.png) ![b](images/b.png) ![b5/12](images/b5／12.png) ![b4/12](images/b4／12.png) ![b3/12](images/b3／12.png) ![b2/12](images/b2／12.png) ![b1/12](images/b1／12.png)
+
+![#1/12](images/s1／12.png) ![#2/12](images/s2／12.png) ![#3/12](images/s3／12.png) ![#4/12](images/s4／12.png) ![#5/12](images/s5／12.png) ![#](images/s.png) ![#7/12](images/s7／12.png) ![#8/12](images/s8／12.png) ![#9/12](images/s9／12.png) ![#10/12](images/s10／12.png) ![#11/12](images/s11／12.png)
+
+wyschnegradsky 1/12 tone accidentals
+
 
 
 --------
