@@ -318,7 +318,7 @@ For example, in 31-edo, where the sharpness rating is sharp-2:
 
 ![s1/12](images/s1／12.png) ![s2/12](images/s2／12.png) ![s3/12](images/s3／12.png) ![s4/12](images/s4／12.png) ![s5/12](images/s5／12.png) ![s](images/s.png) ![s7/12](images/s7／12.png) ![s8/12](images/s8／12.png) ![s9/12](images/s9／12.png) ![s10/12](images/s10／12.png) ![s11/12](images/s11／12.png)
 
-wyschnegradsky 1/12 tone accidentals
+wyschnegradsky 1/12 tone accidentals represent an offset of n/12(n = 1 ~ 11) times of the standard sharpness
 
 
 
