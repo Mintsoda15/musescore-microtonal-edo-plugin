@@ -298,7 +298,7 @@ Gould arrow quartertone symbols look very similar to the single up/down arrow He
 and may be used interchangeably, although the plugin defaults to Helmholtz-Ellis when transposing.
 To differentiate the two, Gould arrow symbols appear slightly larger than the Helmholtz-Ellis ones.
 
-### Tuning of quartertone (semisharp/semiflat) accidentals represent an offset of n/6(n = 1 ~ 11) times of the standard sharpness of the accidental. 
+### Tuning of quartertone (semisharp/semiflat) accidentals represent an offset of harp or one and half times of the standard sharpness of the accidental. 
 
 ![db](images/db.png) ![d](images/d.png) ![+](images/+.png) ![s+](images/s+.png)
 
